@@ -17,7 +17,7 @@ namespace mvcdemo.Controllers.Api
             List<VCBUser> lstUser = new List<VCBUser>();
             lstUser.Add(new VCBUser(){Id=1, Name="Nguyen Xuan Hung", Department="Data"});
             lstUser.Add(new VCBUser(){Id=2, Name="Nguyen Dat", Department="IT"});
-            return Ok(new OkResponse<List<VCBUser>>(lstUser));
+            return new OkResponse<List<VCBUser>>(lstUser);
         }
     }
 }

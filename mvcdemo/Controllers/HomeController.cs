@@ -1,5 +1,6 @@
 using System.Diagnostics;
 using Microsoft.AspNetCore.Mvc;
+using mvcdemo.Data;
 using mvcdemo.Models;
 
 namespace mvcdemo.Controllers;
@@ -7,10 +8,12 @@ namespace mvcdemo.Controllers;
 public class HomeController : Controller
 {
     private readonly ILogger<HomeController> _logger;
+    private VCBDataContext dbContext;
 
-    public HomeController(ILogger<HomeController> logger)
+    public HomeController(ILogger<HomeController> logger, VCBDataContext _dbContext)
     {
         _logger = logger;
+        dbContext = _dbContext;
     }
 
     public IActionResult Index()
@@ -23,8 +26,7 @@ public class HomeController : Controller
     public IActionResult Hello()
     {
         List<VCBUser> lstMyAcc = new List<VCBUser>();
-        lstMyAcc.Add(new VCBUser(){Id = 1, Name = "Hoang Xuan Bach", Department="IT"});
-        lstMyAcc.Add(new VCBUser(){Id = 2, Name = "Hoang Xuan Vinh", Department="Sport"});
+        lstMyAcc =  dbContext.vCBUsers.ToList();
 
         return View(lstMyAcc); //Truyen data tu controller xuong view qua ViewModel
     }

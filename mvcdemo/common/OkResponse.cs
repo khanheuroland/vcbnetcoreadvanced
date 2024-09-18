@@ -6,16 +6,24 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace mvcdemo.common
 {
-    
-    public class OkResponse<T>
+    public class OkResponse<T> : IActionResult
     {
-        public int status = 200;
-        public string message;
-        public T data;
-        public OkResponse(T _data, String message="")
+        private readonly T _result;
+        private readonly string _message;
+
+        public OkResponse(T result, String message="")
         {
-            this.data = _data;
-            this.message = message;
+            _result = result;
+            _message = message;
+        }
+        public async Task ExecuteResultAsync(ActionContext context)
+        {
+            var objectResult = new ObjectResult(new {status=200, message=_message, data=_result})
+            {
+                StatusCode = StatusCodes.Status200OK
+            };
+
+            await objectResult.ExecuteResultAsync(context);
         }
     }
 }

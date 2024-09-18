@@ -14,5 +14,6 @@ namespace mvcdemo.Data
             
         }
         public DbSet<VCBUser> vCBUsers{ get; set; } = default!;
+        public DbSet<VCBUserAccount> vCBUserAccounts{ get; set; } = default!;
     }
 }
