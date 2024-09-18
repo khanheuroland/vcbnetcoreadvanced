@@ -1,7 +1,15 @@
+using Microsoft.EntityFrameworkCore;
+using mvcdemo.Data;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
+
+builder.Services.AddDbContext<VCBDataContext>(
+    options=>options.UseSqlServer(
+        builder.Configuration.GetConnectionString("VCBDataContext"))
+);
 
 var app = builder.Build();
 
