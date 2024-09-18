@@ -1,0 +1,17 @@
+
+<h>Danh sach nhan vien</h>
+
+@{
+    List<VCBUser> lstUser = (List<VCBUser>) ViewBag.Users;
+}
+
+<table>
+@foreach(VCBUser user in lstUser)
+{
+    <tr>
+        <td>@user.Id</td>
+        <td>@user.Name</td>
+        <td>@user.Department</td>
+    </tr>
+}
+</table>

@@ -15,6 +15,8 @@ public class HomeController : Controller
 
     public IActionResult Index()
     {
+        //return Redirect("Home/Hello");
+        //return RedirectToAction("Hello", "Home");
         return View();
     }
 
@@ -24,7 +26,16 @@ public class HomeController : Controller
         lstMyAcc.Add(new VCBUser(){Id = 1, Name = "Hoang Xuan Bach", Department="IT"});
         lstMyAcc.Add(new VCBUser(){Id = 2, Name = "Hoang Xuan Vinh", Department="Sport"});
 
-        return View(lstMyAcc);
+        return View(lstMyAcc); //Truyen data tu controller xuong view qua ViewModel
+    }
+
+    public IActionResult Hello2()
+    {
+        List<VCBUser> lstMyAcc = new List<VCBUser>();
+        lstMyAcc.Add(new VCBUser(){Id = 1, Name = "Hoang Xuan Bach", Department="IT"});
+        lstMyAcc.Add(new VCBUser(){Id = 2, Name = "Hoang Xuan Vinh", Department="Sport"});
+        ViewBag.Users = lstMyAcc; //Truyen data tu controller xuong view qua viewbag
+        return View();
     }
 
     public IActionResult Privacy()

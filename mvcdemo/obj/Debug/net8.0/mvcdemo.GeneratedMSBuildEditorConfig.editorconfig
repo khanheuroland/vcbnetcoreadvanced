@@ -22,8 +22,16 @@ build_property._RazorSourceGeneratorDebug =
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxIZWxsby5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
+[C:/Users/iPMAC/Documents/Visual Studio 2022/mvcdemo/mvcdemo/Views/Home/Hello2.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxIZWxsbzIuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
 [C:/Users/iPMAC/Documents/Visual Studio 2022/mvcdemo/mvcdemo/Views/Home/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxJbmRleC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/iPMAC/Documents/Visual Studio 2022/mvcdemo/mvcdemo/Views/Home/PartialView.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxQYXJ0aWFsVmlldy5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/Users/iPMAC/Documents/Visual Studio 2022/mvcdemo/mvcdemo/Views/Home/Privacy.cshtml]
