@@ -23,6 +23,7 @@ public class HomeController : Controller
         return View();
     }
 
+    [HttpGet("/hello")]
     public IActionResult Hello()
     {
         List<VCBUser> lstMyAcc = new List<VCBUser>();
@@ -37,6 +38,12 @@ public class HomeController : Controller
         lstMyAcc.Add(new VCBUser(){Id = 1, Name = "Hoang Xuan Bach", Department="IT"});
         lstMyAcc.Add(new VCBUser(){Id = 2, Name = "Hoang Xuan Vinh", Department="Sport"});
         ViewBag.Users = lstMyAcc; //Truyen data tu controller xuong view qua viewbag
+        return View();
+    }
+
+    public IActionResult sayHello(String username)
+    {
+        ViewData["inputtedname"] = username;
         return View();
     }
 
