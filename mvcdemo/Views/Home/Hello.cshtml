@@ -1,0 +1,14 @@
+@model List<VCBUser>
+
+<h>Danh sach nhan vien</h>
+
+<table>
+@foreach(VCBUser user in Model)
+{
+    <tr>
+        <td>@user.Id</td>
+        <td>@user.Name</td>
+        <td>@user.Department</td>
+    </tr>
+}
+</table>

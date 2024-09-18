@@ -28,3 +28,4 @@ C:\Users\iPMAC\Documents\Visual Studio 2022\mvcdemo\mvcdemo\obj\Debug\net8.0\ref
 C:\Users\iPMAC\Documents\Visual Studio 2022\mvcdemo\mvcdemo\obj\Debug\net8.0\mvcdemo.pdb
 C:\Users\iPMAC\Documents\Visual Studio 2022\mvcdemo\mvcdemo\obj\Debug\net8.0\mvcdemo.genruntimeconfig.cache
 C:\Users\iPMAC\Documents\Visual Studio 2022\mvcdemo\mvcdemo\obj\Debug\net8.0\ref\mvcdemo.dll
+C:\Users\iPMAC\Documents\Visual Studio 2022\mvcdemo\mvcdemo\obj\Debug\net8.0\mvcdemo.sourcelink.json

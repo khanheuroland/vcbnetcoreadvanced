@@ -18,6 +18,15 @@ public class HomeController : Controller
         return View();
     }
 
+    public IActionResult Hello()
+    {
+        List<VCBUser> lstMyAcc = new List<VCBUser>();
+        lstMyAcc.Add(new VCBUser(){Id = 1, Name = "Hoang Xuan Bach", Department="IT"});
+        lstMyAcc.Add(new VCBUser(){Id = 2, Name = "Hoang Xuan Vinh", Department="Sport"});
+
+        return View(lstMyAcc);
+    }
+
     public IActionResult Privacy()
     {
         return View();
