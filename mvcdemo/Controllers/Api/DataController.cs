@@ -6,12 +6,14 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using mvcdemo.common;
+using mvcdemo.common.Filters;
 using mvcdemo.Models;
 
 namespace mvcdemo.Controllers.Api
 {
     public class DataController : ControllerBase
     {
+        [ApiKey]
         public IActionResult GetData()
         {
             List<VCBUser> lstUser = new List<VCBUser>();

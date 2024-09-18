@@ -3,9 +3,12 @@ using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore.Metadata.Internal;
 using Microsoft.Extensions.Logging;
 using mvcdemo.Models;
+using mvcdemo.Models.ModelBinding;
 
 namespace mvcdemo.Controllers
 {
@@ -34,6 +37,19 @@ namespace mvcdemo.Controllers
             return Content(login.Username + "-" + login.Password + "-"+ Remember + "-"+Username);
         }
 
+        [Authorize]
+        public IActionResult GetDetails([ModelBinder(typeof(CommaSeparatedModelBinder))] List<int> Ids)
+        {
+             // Your logic...
+             return Ok(Ids);
+        }
+
+
+        [HttpPost]
+        public IActionResult Register([ModelBinder(typeof(LoginModelBinder))][FromBody]LoginModel login,[FromHeader] String ApiKey)
+        {
+            return Ok(new {ApiKey = ApiKey, Data = login});
+        }
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
         public IActionResult Error()

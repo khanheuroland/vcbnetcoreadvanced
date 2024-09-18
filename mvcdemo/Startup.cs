@@ -4,6 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.EntityFrameworkCore;
 using mvcdemo.Data;
+using mvcdemo.Models.ModelBinding;
 
 namespace mvcdemo
 {
@@ -19,7 +20,9 @@ namespace mvcdemo
 
         public void ConfigureServices()
         {
-            services.AddControllersWithViews();
+            services.AddControllersWithViews(options=>
+                options.ModelBinderProviders.Insert(0, new ModelBinderProvider())
+            );
 
             services.AddDbContext<VCBDataContext>(
                 options=>options.UseSqlServer(
