@@ -16,8 +16,11 @@ namespace mvcdemo.Controllers.Api
         public IActionResult GetData()
         {
             List<VCBUser> lstUser = new List<VCBUser>();
-            lstUser.Add(new VCBUser(){Id=1, Name="Nguyen Xuan Hung", Department="Data"});
-            lstUser.Add(new VCBUser(){Id=2, Name="Nguyen Dat", Department="IT"});
+            for(int i=0; i<1000000; i++)
+            {
+                lstUser.Add(new VCBUser(){Id=1, Name="Nguyen Xuan Hung", Department="Data"});
+            }
+
             return new OkResponse(lstUser);
         }
 

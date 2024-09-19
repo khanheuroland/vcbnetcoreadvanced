@@ -1,7 +1,9 @@
 using System;
 using System.Collections.Generic;
+using System.IO.Compression;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.ResponseCompression;
 using Microsoft.AspNetCore.Server.Kestrel.Core;
 using Microsoft.EntityFrameworkCore;
 using mvcdemo.Data;
@@ -33,6 +35,15 @@ namespace mvcdemo
                 options=>options.UseSqlServer(
                     configuration.GetConnectionString("VCBDataContext"))
             );
+
+            services.AddResponseCompression(options=>{
+                options.EnableForHttps = true;
+                options.Providers.Add<GzipCompressionProvider>();
+            });
+
+            services.Configure<GzipCompressionProviderOptions>(options=>{
+                options.Level = CompressionLevel.Optimal;
+            });
         }
 
         public void ConfigureMiddleware(WebApplication app, IHostEnvironment env)
@@ -49,6 +60,7 @@ namespace mvcdemo
             app.UseStaticFiles();
 
             app.UseRouting();
+            app.UseResponseCompression();
 
             app.UseAuthorization();
         }
