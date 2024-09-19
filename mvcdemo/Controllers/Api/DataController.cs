@@ -13,13 +13,22 @@ namespace mvcdemo.Controllers.Api
 {
     public class DataController : ControllerBase
     {
-        [ApiKey]
         public IActionResult GetData()
         {
             List<VCBUser> lstUser = new List<VCBUser>();
             lstUser.Add(new VCBUser(){Id=1, Name="Nguyen Xuan Hung", Department="Data"});
             lstUser.Add(new VCBUser(){Id=2, Name="Nguyen Dat", Department="IT"});
-            return new OkResponse<List<VCBUser>>(lstUser);
+            return new OkResponse(lstUser);
+        }
+
+        public IActionResult GetPerson()
+        {
+            VCBUser user = new VCBUser();
+            user.Id = 1;
+            user.Name = "Xuan Huy";
+            user.Department = "Customer Support";
+
+            return new ErrorReponse("This person is not available");
         }
     }
 }

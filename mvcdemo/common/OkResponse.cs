@@ -6,12 +6,12 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace mvcdemo.common
 {
-    public class OkResponse<T> : IActionResult
+    public class OkResponse : IActionResult
     {
-        private readonly T _result;
+        private readonly Object _result;
         private readonly string _message;
 
-        public OkResponse(T result, String message="")
+        public OkResponse(Object result, String message="")
         {
             _result = result;
             _message = message;

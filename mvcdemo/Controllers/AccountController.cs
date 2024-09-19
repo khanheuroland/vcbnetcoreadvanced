@@ -7,6 +7,7 @@ using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore.Metadata.Internal;
 using Microsoft.Extensions.Logging;
+using mvcdemo.common;
 using mvcdemo.Models;
 using mvcdemo.Models.ModelBinding;
 
@@ -46,9 +47,18 @@ namespace mvcdemo.Controllers
 
 
         [HttpPost]
-        public IActionResult Register([ModelBinder(typeof(LoginModelBinder))][FromBody]LoginModel login,[FromHeader] String ApiKey)
+        public IActionResult Register([FromBody]LoginModel login,[FromHeader] String ApiKey)
         {
-            return Ok(new {ApiKey = ApiKey, Data = login});
+            if(ModelState.IsValid)
+            {
+                return Ok(new {ApiKey = ApiKey, Data = login});
+            }
+            else
+            {
+                String message = string.Join("|", ModelState.Values.SelectMany(x=>x.Errors).Select(e=>e.ErrorMessage));
+                
+                return Ok(message);
+            }
         }
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]

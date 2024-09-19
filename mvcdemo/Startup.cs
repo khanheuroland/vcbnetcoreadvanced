@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Server.Kestrel.Core;
 using Microsoft.EntityFrameworkCore;
 using mvcdemo.Data;
 using mvcdemo.Models.ModelBinding;
@@ -20,6 +21,10 @@ namespace mvcdemo
 
         public void ConfigureServices()
         {
+            services.Configure<KestrelServerOptions>(options=>{
+                options.AllowSynchronousIO=true;
+            });
+            
             services.AddControllersWithViews(options=>
                 options.ModelBinderProviders.Insert(0, new ModelBinderProvider())
             );
